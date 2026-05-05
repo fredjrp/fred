@@ -34,12 +34,13 @@ definitions:
     FLUTTER_VERSION: stable
     PACKAGE_NAME: "com.loyversepos.app"
 
-  # Reusable restore/cache scripts
-  cache_paths: &cache_paths
-    cache_paths:
-      - $FLUTTER_ROOT/.pub-cache
-      - $HOME/.gradle/caches
-      - $CM_BUILD_DIR/.dart_tool
+  # Reusable cache configuration
+  cache_config: &cache_config
+    cache:
+      cache_paths:
+        - $FLUTTER_ROOT/.pub-cache
+        - $HOME/.gradle/caches
+        - $CM_BUILD_DIR/.dart_tool
 
 workflows:
 
@@ -50,13 +51,13 @@ workflows:
     name: "Android — Debug APK"
     max_build_duration: 45
     instance_type: mac_mini_m2
-    <<: *cache_paths
 
     environment:
       flutter: stable
       vars:
         <<: *base_env
         BUILD_NAME: "debug"
+      <<: *cache_config
 
     triggering:
       events:
@@ -113,7 +114,6 @@ workflows:
     name: "Android — Release APK + AAB (Signed)"
     max_build_duration: 60
     instance_type: mac_mini_m2
-    <<: *cache_paths
 
     environment:
       flutter: stable
@@ -122,6 +122,7 @@ workflows:
       vars:
         <<: *base_env
         BUILD_NAME: "release"
+      <<: *cache_config
 
     triggering:
       events:
@@ -299,6 +300,7 @@ workflows:
       flutter: stable
       vars:
         <<: *base_env
+      <<: *cache_config
 
     triggering:
       events:
