@@ -1,0 +1,53 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+*.lock
+
+# Android
+android/local.properties
+android/key.properties
+android/app/google-services.json
+*.jks
+*.keystore
+*.pepk
+
+# iOS / macOS
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+macos/Pods/
+*.xcworkspace
+
+# Firebase
+firebase_options.dart
+google-services.json
+GoogleService-Info.plist
+
+# Environment
+.env
+.env.*
+secrets/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.apk
+*.aab
+*.exe
+*.msix
+
+# Coverage
+coverage/
+lcov.info
